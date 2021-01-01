@@ -1,0 +1,135 @@
+JFDML JFormDesigner: "7.0.1.0.272" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fill,hidemode 3,align center center"
+			"$columnConstraints": "[fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][]"
+		} ) {
+			name: "logFrame"
+			"$locationPolicy": 1
+			"$sizePolicy": 1
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "userField"
+				"text": "Enter Username"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "userFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 5 1"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "passField"
+				"text": "Enter Password"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "passFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 5 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "logButton"
+				"text": "Log In"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "logButtonMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 200, 200 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fill,hidemode 3,align center center"
+			"$columnConstraints": "[fill]"
+			"$rowConstraints": "[]"
+		} ) {
+			name: "logErrorDialog"
+			"$locationPolicy": 1
+			"$sizePolicy": 1
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "logErrorText"
+				"text": "text"
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 215, 5 )
+			"size": new java.awt.Dimension( 200, 100 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fill,hidemode 3,align center center"
+			"$columnConstraints": "[fill]"
+			"$rowConstraints": "[][][][][]"
+		} ) {
+			name: "updateFrame"
+			"$locationPolicy": 1
+			"$sizePolicy": 1
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "uNameField"
+				"text": "Enter New Name"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "uNameFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "uUserField"
+				"text": "Enter New Username"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "uUserFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "uPassField"
+				"text": "Enter New Password"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "uPassFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "uEmailField"
+				"text": "Enter New Email"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "uEmailFieldMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "updateButton"
+				"text": "Done"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "updateButtonMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 220 )
+			"size": new java.awt.Dimension( 200, 250 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fill,hidemode 3,align center center"
+			"$columnConstraints": "[fill]"
+			"$rowConstraints": "[][][]"
+		} ) {
+			name: "successDialog"
+			"$locationPolicy": 1
+			"$sizePolicy": 1
+			"defaultCloseOperation": 2
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Update Successful"
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "successButton"
+				"text": "Close"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "successButtonMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 215, 220 )
+			"size": new java.awt.Dimension( 200, 150 )
+		} )
+	}
+}

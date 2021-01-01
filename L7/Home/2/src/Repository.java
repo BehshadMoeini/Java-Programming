@@ -1,0 +1,51 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Repository implements AutoCloseable {
+    private Connection connection;
+    private PreparedStatement preparedStatement;
+    public Repository() throws Exception {
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "ali", "ali");
+        connection.setAutoCommit(false);
+    }
+    public void insert(Entity entity) throws Exception {
+        preparedStatement = connection.prepareStatement("insert into customers (melliID, name, cName, cYear, cPrice) values (?,?,?,?,?)");
+        preparedStatement.setInt(1,entity.getMelliID());
+        preparedStatement.setString(2, entity.getName());
+        preparedStatement.setString(3, entity.getcName());
+        preparedStatement.setInt(4, entity.getcYear());
+        preparedStatement.setString(5, entity.getcPrice());
+        preparedStatement.executeUpdate();
+    }
+    public List<Entity> select() throws Exception {
+        preparedStatement = connection.prepareStatement("select * from customers");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        List<Entity> entityList = new ArrayList<>();
+        while (resultSet.next()) {
+            Entity entity = new Entity();
+            entity.setMelliID(resultSet.getInt("melliID"));
+            entity.setName(resultSet.getString("name"));
+            entity.setcName(resultSet.getString("cName"));
+            entity.setcYear(resultSet.getInt("cYear"));
+            entity.setcPrice(resultSet.getString("cPrice"));
+            entityList.add(entity);
+        }
+        return entityList;
+    }
+    public void commit() throws Exception {
+        connection.commit ();
+    }
+    public void rollback() throws Exception {
+        connection.rollback ();
+    }
+    @Override
+    public void close() throws Exception {
+        preparedStatement.close();
+        connection.close();
+    }
+}
